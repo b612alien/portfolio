@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 보수 중</title>
+    <style>
+        /* 전체 페이지 설정 */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* 화면 전체 높이 사용 */
+            display: flex; /* 플렉스박스 사용 (중앙 정렬 핵심) */
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            background-color: #f8f9fa; /* 아주 연한 회색 배경 */
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+            color: #333;
+        }
+
+        /* 내용이 담긴 상자 */
+        .container {
+            text-align: center; /* 텍스트 가운데 정렬 */
+            padding: 20px;
+        }
+
+        /* 이모티콘 스타일 */
+        .icon {
+            font-size: 80px; /* 이모티콘 크기 */
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite; /* 둥실둥실 움직이는 효과 */
+        }
+
+        /* 제목 텍스트 (보수 중입니다) */
+        h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        /* 설명 텍스트 */
+        p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* 둥실둥실 애니메이션 정의 */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">🚧</div> 
+        
+        <h1>현재 사이트 보수 중입니다</h1>
+        <p>더 멋진 포트폴리오를 위해 단장하고 있어요.<br>조금만 기다려주세요!</p>
+    </div>
+
+</body>
+</html>
