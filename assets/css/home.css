@@ -1,0 +1,47 @@
+/* Shared header rules live exclusively in style.css, on every page. */
+.home-page{min-height:100svh;display:flex;flex-direction:column}
+.home-main{flex:1;display:flex;align-items:center;justify-content:center;width:100%;max-width:1440px;margin:0 auto;padding:90px 5.5% 110px;min-height:calc(100svh - 174px)}
+.home-gallery{display:flex;align-items:center;justify-content:center;gap:clamp(24px,4vw,64px);width:100%;margin:0}
+.home-project{display:flex;flex:1 1 0;flex-direction:column;align-items:center;min-width:0;position:relative;transform:scale(1);transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+/* The media wrapper follows the actual image bounds, including its overlay. */
+.home-media{position:relative;max-width:100%;width:fit-content;overflow:hidden;isolation:isolate}
+.home-media:has(.visual){width:100%}
+img.home-image{display:block;width:auto;height:auto;max-width:100%;max-height:62svh;object-fit:contain}
+/* Only placeholders have sample aspect ratios. Real photos retain their proportions. */
+.home-project .visual.home-image{display:flex;align-items:center;justify-content:center;width:100%;height:auto;aspect-ratio:3/4;background:#f1f1f1}
+.home-project:nth-child(2) .visual.home-image{aspect-ratio:4/3;background:#e9e9e9}
+.home-project:nth-child(3) .visual.home-image{aspect-ratio:4/5;background:#f5f5f5}
+.home-project .mark{font-size:38px;color:#c3c3c3}
+.home-project .visual:after{font-size:8px;left:12px;bottom:14px;letter-spacing:.06em}
+.home-overlay{position:absolute;inset:25% 0 0;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:24px 20px;color:#fff;background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.12) 35%,rgba(0,0,0,.82) 100%);opacity:0;transition:opacity .65s ease;pointer-events:none}
+.home-overlay>span{transform:translateY(10px);transition:transform .65s cubic-bezier(.22,.61,.36,1)}
+.home-project:focus-visible .home-overlay>span{transform:translateY(0)}
+.home-product-name{font-size:clamp(15px,1.5vw,22px);font-weight:500;line-height:1.4;letter-spacing:-.025em;overflow-wrap:anywhere}
+.home-product-details{font-size:11px;line-height:1.6;color:rgba(255,255,255,.85)}
+.home-project:focus-visible{z-index:2}
+.home-project:focus-visible .home-overlay{opacity:1}
+@media(hover:hover) and (pointer:fine){
+ .home-gallery .home-project:hover{transform:scale(1.045);z-index:2}
+ .home-project:hover .home-overlay{opacity:1}
+ .home-project:hover .home-overlay>span{transform:translateY(0)}
+}
+.home-gallery .home-project:focus-visible{transform:scale(1.045)}
+@media(hover:none),(pointer:coarse){.home-overlay{opacity:1}.home-overlay>span{transform:none}}
+.home-page .site-footer{width:100%;flex-shrink:0}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:700px){
+ .home-main{padding:64px 6% 80px;min-height:0}
+ .home-gallery{flex-direction:column;gap:56px}
+ .home-project{flex:none;width:100%;max-width:460px}
+ img.home-image{max-height:70svh}
+ .home-media:has(.visual){width:86%}
+ .home-project:nth-child(2) .home-media:has(.visual){width:100%}
+ .home-project:nth-child(3) .home-media:has(.visual){width:78%}
+ .home-project .mark{font-size:32px}
+ .home-overlay{padding:22px 18px}
+ .home-product-name{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-gallery .home-project{transform:none!important;transition:none}
+ .home-overlay,.home-overlay>span{transition:none;transform:none}
+}
